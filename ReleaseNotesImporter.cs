@@ -7,7 +7,7 @@ namespace ReleaseNotesImporter
 {
    public class ReleaseNote
    {
-       public DateTime Date { get; set; }
+       public DateTime Date { get ; set; }
        public string TicketId { get; set; }
        public string Description { get; set; }
    }
@@ -29,10 +29,10 @@ namespace ReleaseNotesImporter
            var notes = new List<ReleaseNote>();
            using (var document = DocX.Load(filePath))
            {
-               // Предполагаме, че всеки тикет е описан като:
+                // Word document has paragraphs formatted like:
                // Date: 2025-06-10
                // Ticket: ANYPAY-1234
-               // Description: Fixed login bug in payment screen.
+               // Title: Login bug in payment screen.
                var paragraphs = document.Paragraphs;
                DateTime currentDate = DateTime.MinValue;
                string currentTicket = string.Empty;
